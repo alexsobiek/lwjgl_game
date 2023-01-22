@@ -1,6 +1,7 @@
 package com.alexsobiek.game.window.graphics.window;
 
 import com.alexsobiek.game.window.KeyAction;
+import lombok.Getter;
 import org.lwjgl.glfw.Callbacks;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWVidMode;
@@ -15,6 +16,7 @@ public class Window implements AutoCloseable {
     private final String name;
     private final WindowOptions options;
     private final Consumer<WindowSize> resizeFn;
+    @Getter
     private WindowSize size;
     private long handle;
     private boolean created;

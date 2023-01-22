@@ -25,7 +25,7 @@ public class GraphicsEngine {
 
     private boolean running;
 
-    private Scene scene = new Scene();
+    private Scene scene;
 
     public GraphicsEngine(String name, WindowOptions windowOptions, LogicCallback callback) throws Exception {
         this.window = new Window(name, windowOptions, this::resize);
@@ -49,12 +49,15 @@ public class GraphicsEngine {
         }
 
         this.renderer.start();
+
+        WindowSize size = this.window.getSize();
+        this.scene = new Scene(size.getWidth(), size.getHeight());
         callback.onInit(this.window, this.scene);
         this.running = true;
         this.loop();
     }
 
-    private void loop() {
+    private void loop() throws Exception {
         long updateTime = initialTime;
 
         while (running && !window.shouldClose()) {
@@ -88,6 +91,7 @@ public class GraphicsEngine {
 
     private void resize(WindowSize size) {
         System.out.println("Resizing window to " + size.getWidth() + "x" + size.getHeight());
+        scene.resize(size.getWidth(), size.getHeight());
     }
 
     private void onClose() {

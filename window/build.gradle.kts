@@ -23,4 +23,6 @@ dependencies {
     runtimeOnly("org.lwjgl", "lwjgl-glfw", classifier = "natives-linux")
     runtimeOnly("org.lwjgl", "lwjgl-glfw", classifier = "natives-macos")
     runtimeOnly("org.lwjgl", "lwjgl-glfw", classifier = "natives-windows")
+
+    implementation("org.joml:joml:1.10.5")
 }

@@ -17,12 +17,26 @@ public class GameMain {
             public void onInit(Window window, Scene scene) {
                 System.out.println("Initialized!");
 
-                scene.addMesh("triangle", new Mesh(new float[] {
-                        0.0F, 0.5F, 0.0F,
-                        -0.5F, -0.5F, 0.0F,
-                        0.5F, -0.5F, 0.0F
-                }, 3));
+                float[] positions = new float[] {   // square
+                        -0.5f,  0.5f, 0.0f,
+                        -0.5f, -0.5f, 0.0f,
+                        0.5f, -0.5f, 0.0f,
+                        0.5f,  0.5f, 0.0f,
+                };
 
+                float[] colors = new float[] {
+                        0.5f, 0.0f, 0.0f,
+                        0.0f, 0.5f, 0.0f,
+                        0.0f, 0.0f, 0.5f,
+                        0.0f, 0.5f, 0.5f,
+                };
+
+                int[] indices = new int[] {
+                        0, 1, 3,
+                        3, 1, 2
+                };
+
+                scene.addMesh("quad", new Mesh(positions, colors, indices));
             }
 
             @Override
@@ -37,7 +51,7 @@ public class GameMain {
 
             @Override
             public void onUpdate(Window window, Scene scene, long diffTimeMillis) {
-                System.out.println("Update!");
+                // System.out.println("Update!");
             }
         }).start();
     }

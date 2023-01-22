@@ -10,12 +10,12 @@ import java.io.IOException;
 public class Renderer {
     private SceneRenderer sceneRenderer;
 
-    public void start() throws ShaderException, IOException {
+    public void start() throws Exception {
         GL.createCapabilities();
         this.sceneRenderer = new SceneRenderer();
     }
 
-    public void render(Scene scene) {
+    public void render(Scene scene) throws Exception {
         sceneRenderer.render(scene);
     }
 }
